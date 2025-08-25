@@ -28,18 +28,25 @@ body{
     font-weight: bold;
 }
 
-.score-header{
+.scoreboard{
     padding: 8px;
     background-color: white;
     color: red;
     border-radius: 20%;
     border: 5px black double;
     width:fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 32px;
+}
+
+.score-header{
+    width: 40%;
     text-align: center;
 }
 
 .game-icon{
-    width: 40%;
+    width: 35%;
     height: auto;
     border: 10px black solid;
 }
