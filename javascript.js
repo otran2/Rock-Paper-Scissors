@@ -45,7 +45,21 @@ function updateStats(){
     let roundTracker = document.querySelector(".round-number");
     playerTracker.textContent = humanScore
     computerTracker.textContent = computerScore
-    roundTracker.textContent = `Game ${totalGames + 1}`
+    roundTracker.textContent = `Rounds Played: ${totalGames}`
+    if (totalGames === MAXGAMES){
+        let endText
+        if (humanScore === computerScore){
+            endText = "Draw, no winner!"
+        }
+        else if (humanScore > computerScore){
+            endText = "You won, congratulations!"
+        }
+        else{
+            endText = "You lose, better luck next time!"
+        }
+        console.log(endText)
+        log.innerText = endText;
+    }
 }
 
 // Determines round winner
@@ -73,12 +87,16 @@ function playRound(humanChoice, computerChoice){
     totalGames ++
 }
 
-// playButton.addEventListener("click", getHumanChoice);
+function playGame(){
+    if (totalGames === MAXGAMES){
+        return;
+    }
+    let playerHand = getHumanChoice()
+    if (possibleHands.includes(playerHand)){
+        let computerHand = getComputerChoice()
+        playRound(playerHand, computerHand)
+        updateStats()
+    }
+}
 
-// console.log(getComputerChoice())
-// console.log(getHumanChoice())
-console.log(MAXGAMES)
-console.log(computerScore)
-
-playRound('Rock', 'Paper')
-updateStats()
+playButton.addEventListener("click", playGame);
