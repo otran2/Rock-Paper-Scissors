@@ -5,7 +5,7 @@ body{
     margin: 0;
     overflow: auto;
     font-family: Roboto, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
 }
@@ -28,21 +28,34 @@ body{
     font-weight: bold;
 }
 
+.round-number{
+    font-size: 24px;
+    font-weight: bold;
+    padding: 16px;
+    color:midnightblue;
+    text-align: center;
+    text-decoration-line: underline;
+}
+
 .scoreboard{
-    padding: 8px;
+    padding: 4px 16px;
     background-color: white;
     color: red;
     border-radius: 20%;
     border: 5px black double;
     width:fit-content;
     display: flex;
-    justify-content: space-evenly;
     gap: 32px;
+    justify-content: space-around;
 }
 
 .score-header{
-    width: 40%;
+    max-width: 50%;
     text-align: center;
+}
+
+.score-header span{
+    display: block;
 }
 
 .game-icon{

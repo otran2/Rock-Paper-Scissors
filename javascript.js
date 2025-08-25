@@ -6,6 +6,7 @@ const possibleHands = ["Rock", "Paper", "Scissors"]
 const playButton = document.querySelector(".play-button");
 const log = document.querySelector("#log");
 
+// Determines the computer's choice
 function getComputerChoice(){
     let rand = Math.floor(Math.random() * 3)
     if (rand === 0){
@@ -19,6 +20,7 @@ function getComputerChoice(){
     }
 }
 
+// Determines the player's choice
 function getHumanChoice(){
     let hand = prompt("What hand will you choose? (Please enter one of the following 3 options: Rock, Paper, or Scissors)");
 
@@ -36,6 +38,17 @@ function getHumanChoice(){
     }
 }
 
+// Updates the scores and game number
+function updateStats(){
+    let playerTracker = document.querySelector(".score-player");
+    let computerTracker = document.querySelector(".score-computer");
+    let roundTracker = document.querySelector(".round-number");
+    playerTracker.textContent = humanScore
+    computerTracker.textContent = computerScore
+    roundTracker.textContent = `Game ${totalGames + 1}`
+}
+
+// Determines round winner
 function playRound(humanChoice, computerChoice){
     let roundText
     if (humanChoice === computerChoice){
@@ -49,12 +62,15 @@ function playRound(humanChoice, computerChoice){
         roundText = `You win! ${humanChoice} beats ${computerChoice}!`
         console.log(roundText)
         log.innerText = roundText;
+        humanScore ++
     }
     else{
         roundText = `You lose! ${computerChoice} beats ${humanChoice}!`
         console.log(roundText)
         log.innerText = roundText;
+        computerScore ++
     }
+    totalGames ++
 }
 
 // playButton.addEventListener("click", getHumanChoice);
@@ -65,3 +81,4 @@ console.log(MAXGAMES)
 console.log(computerScore)
 
 playRound('Rock', 'Paper')
+updateStats()
