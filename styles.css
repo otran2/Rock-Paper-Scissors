@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body{
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-screen{
+    margin: 2%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+    flex-grow: 1;
+    border-radius: 5%;
+    border: 5px black double;
+}
+
+.title{
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.score{
+    padding: 8px;
+    background-color: white;
+    color: red;
+    border-radius: 20%;
+    border: 5px black double;
+}
+
+.game-icon{
+    width: 40%;
+    height: auto;
+    border: 10px black solid;
+}
+
+.play-button{
+    border-radius: 20%;
+    max-width: fit-content;
+    max-height: fit-content;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 16px 32px;
+}
