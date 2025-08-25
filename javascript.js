@@ -1,13 +1,21 @@
+let humanScore = 0, computerScore = 0, totalGames = 0
+
+const MAXGAMES = 5
+const possibleHands = ["Rock", "Paper", "Scissors"]
+
+const playButton = document.querySelector(".play-button");
+const log = document.querySelector("#log");
+
 function getComputerChoice(){
     let rand = Math.floor(Math.random() * 3)
     if (rand === 0){
-        return "rock"
+        return "Rock"
     }
     else if (rand === 1){
-        return "paper"
+        return "Paper"
     }
     else{
-        return "scissors"
+        return "Scissors"
     }
 }
 
@@ -18,19 +26,42 @@ function getHumanChoice(){
         return null;
     }
     else if (hand.toLowerCase() === "rock") {
-        return "rock";
+        return "Rock";
     } else if (hand.toLowerCase() === "paper") {
-        return "paper";
+        return "Paper";
     } else if (hand.toLowerCase() === "scissors") {
-        return "scissors";
+        return "Scissors";
     } else {
         return "";
     }
 }
 
-const playButton = document.querySelector(".play-button");
-const log = document.querySelector("#log");
+function playRound(humanChoice, computerChoice){
+    let roundText
+    if (humanChoice === computerChoice){
+        roundText = "Same hand, draw!" 
+        console.log(roundText)
+        log.innerText = roundText;
+    }
+    else if ((humanChoice === possibleHands[0] && computerChoice === possibleHands[2])
+    || (humanChoice === possibleHands[1] && computerChoice === possibleHands[0])
+    || (humanChoice === possibleHands[2] && computerChoice === possibleHands[1])){
+        roundText = `You win! ${humanChoice} beats ${computerChoice}!`
+        console.log(roundText)
+        log.innerText = roundText;
+    }
+    else{
+        roundText = `You lose! ${computerChoice} beats ${humanChoice}!`
+        console.log(roundText)
+        log.innerText = roundText;
+    }
+}
+
 // playButton.addEventListener("click", getHumanChoice);
 
-console.log(getComputerChoice())
-console.log(getHumanChoice())
+// console.log(getComputerChoice())
+// console.log(getHumanChoice())
+console.log(MAXGAMES)
+console.log(computerScore)
+
+playRound('Rock', 'Paper')
