@@ -97,6 +97,10 @@ function playGame(){
         playRound(playerHand, computerHand)
         updateStats()
     }
+    else{
+        console.log("Invalid choice")
+        log.innerText = "Invalid choice";
+    }
 }
 
 playButton.addEventListener("click", playGame);
