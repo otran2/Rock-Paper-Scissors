@@ -98,8 +98,7 @@ function playGame(){
         updateStats()
     }
     else{
-        console.log("Invalid choice")
-        log.innerText = "Invalid choice";
+        alert("Invalid choice")
     }
 }
 
