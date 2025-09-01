@@ -3,7 +3,8 @@ let humanScore = 0, computerScore = 0, totalGames = 0
 const MAXGAMES = 5
 const possibleHands = ["Rock", "Paper", "Scissors"]
 
-const playButton = document.querySelector(".play-button");
+//const playButton = document.querySelector(".play-button");
+const options = document.querySelector(".player-options")
 const log = document.querySelector("#log");
 
 // Determines the computer's choice
@@ -57,7 +58,7 @@ function updateStats(){
         else{
             endText = "You lose, better luck next time!"
         }
-        console.log(endText)
+        //  console.log(endText)
         log.innerText = endText;
     }
 }
@@ -67,20 +68,20 @@ function playRound(humanChoice, computerChoice){
     let roundText
     if (humanChoice === computerChoice){
         roundText = "Same hand, draw!" 
-        console.log(roundText)
+        //  console.log(roundText)
         log.innerText = roundText;
     }
     else if ((humanChoice === possibleHands[0] && computerChoice === possibleHands[2])
     || (humanChoice === possibleHands[1] && computerChoice === possibleHands[0])
     || (humanChoice === possibleHands[2] && computerChoice === possibleHands[1])){
         roundText = `You win! ${humanChoice} beats ${computerChoice}!`
-        console.log(roundText)
+        //  console.log(roundText)
         log.innerText = roundText;
         humanScore ++
     }
     else{
-        roundText = `You lose! ${computerChoice} beats ${humanChoice}!`
-        console.log(roundText)
+        roundText = `You lose! ${humanChoice} does not beat ${computerChoice}!`
+        //  console.log(roundText)
         log.innerText = roundText;
         computerScore ++
     }
@@ -102,4 +103,10 @@ function playGame(){
     }
 }
 
-playButton.addEventListener("click", playGame);
+options.addEventListener('click', function(event) {
+  const buttonText = event.target.innerText
+  playRound(buttonText, getComputerChoice())
+  updateStats()
+});
+
+// playButton.addEventListener("click", playGame);
