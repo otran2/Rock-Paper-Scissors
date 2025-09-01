@@ -5,7 +5,10 @@ const possibleHands = ["Rock", "Paper", "Scissors"]
 
 //const playButton = document.querySelector(".play-button");
 const options = document.querySelector(".player-options")
-const log = document.querySelector("#log");
+const log = document.querySelector("#log")
+log.style.textAlign = "center"
+log.style.fontWeight = "bold"
+log.style.margin = "8px"
 
 // Determines the computer's choice
 function getComputerChoice(){
@@ -104,6 +107,9 @@ function playGame(){
 }
 
 options.addEventListener('click', function(event) {
+  if (totalGames === MAXGAMES){
+    return;
+  }
   const buttonText = event.target.innerText
   playRound(buttonText, getComputerChoice())
   updateStats()
